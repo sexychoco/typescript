@@ -66,3 +66,42 @@ superPrint([[true,False,true])
 **그렇다면 Generic 대신 any 를 사용해도 되지 않는가?**  
 any 를 사용하게 된다면 모든 데이터의 타입은 any 로 선언되기 때문에 더 이상 보호받지 못하고 에러를 유발할 수 있다.
 
+#### Type, Interfaces
+타입스크립트에게는 오브젝트의 모양을 알려주는 2가지 방법이 있으며, Type, Interface 가 이에 해당한다. 
+먼저, Types 은 매우 다재다능한 키워드이다. 타입 alis 를 만들거나 특정 값을 지니도록 제한, 또는 오브젝트 모양을 묘사하는데 쓰인다. 
+```typescript
+type Team = "red" | "blue" | "yellow"
+type Health = 1 | 5 | 10
+
+type Player = {
+	nickname:string,
+	team: Team,
+	health: Health
+}
+
+const nico : Player = {
+	nickname: "nico",
+	team: "yellow",
+	health: 10,
+}
+```
+이 코드를 보면 Team 을 "red","blue" 혹은 "yellow" 로만 제한할 수 있다. 
+오브젝트의 형태를 묘사하는 또 다른 방법에는 interface 가 있다. 
+```typescript
+type Team = "red" | "blue" | "yellow"
+type Health = 1 | 5 | 10
+
+interface Player = {
+	nickname:string,
+	team: Team,
+	health: Health
+}
+
+const nico : Player = {
+	nickname: "nico",
+	team: "yellow",
+	health: 10,
+}
+```
+위의 코드와 크게 다른 점은 없다. interface는 오직 한가지 용도만을 가지고 있고 그건 오브젝트 모양을 특정해주기 위한 것이다. 
+
